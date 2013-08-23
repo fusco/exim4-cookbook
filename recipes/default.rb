@@ -16,3 +16,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+package "exim4-daemon-light"
+
+service 'exim4' do
+	supports :status => true, :restart => true, :reload => true
+	action :enable
+end
+
+service 'exim4' do
+  action :start
+end
