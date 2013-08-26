@@ -1,6 +1,6 @@
 Description
 ===========
-This cookbook aims to help with a custom configuration rather than the default ones covered by the exim4-config packages. If you are looking for a simple setup, please have a look at the [exim4-light](https://github.com/tmassman/exim4-light) cookbook.
+This cookbook aims to help with a custom configuration of exim4 rather than the default ones covered by the exim4-config packages. If you are looking for a simple setup, please have a look at the [exim4-light](https://github.com/tmassman/exim4-light) cookbook.
 
 Requirements
 ============
@@ -19,7 +19,7 @@ Recipes
 =======
 default
 -------
-Installs the exim4-daemon-light package and manages the service and the main configuration files. See __Usage__ and __Examples__ to customize behaviour of this recipe through configuration of the attributes.
+Installs the exim4-daemon-heavy package and manages the service and the main configuration file. See __Usage__ and __Examples__ to customize behaviour of this recipe through configuration of the attributes.
 
 Usage
 =====
