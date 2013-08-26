@@ -1,7 +1,4 @@
 #
-# Cookbook Name:: exim4
-# Recipe:: default
-#
 # Copyright (C) 2013 Michael Weinrich
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,19 +14,10 @@
 # limitations under the License.
 #
 
-package_name = 'exim4-daemon-light'
+default['exim4']['local_domains'] = [ 'localhost', '@' ]
+default['exim4']['relay_to_domains'] = [ ]
+default['exim4']['relay_from_hosts'] = [ '127.0.0.1', '::1' ]
 
-package package_name
-
-service 'exim4' do
-	supports :status => true, :restart => true, :reload => true
-	action [:enable, :start]
-end
-
-template "/etc/exim4/exim4.conf" do
-  source "exim4.conf.erb"
-  owner "root"
-  group "Debian-exim"
-  mode 0644
-  notifies :restart, resources(:service => "exim4")
-end
+default['exim4']['use_tls'] = true
+default['exim4']['tls_certificate'] = '/etc/ssl/exim.crt'
+default['exim4']['tls_privatekey'] = '/etc/ssl/exim.pem'
