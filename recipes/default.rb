@@ -2,7 +2,8 @@
 # Cookbook Name:: exim4
 # Recipe:: default
 #
-# Copyright (C) 2013 Michael Weinrich
+# Author:: Michael Weinrich <micxer@micxer.de>
+# License:: Apache License, Version 2.0
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
