@@ -17,6 +17,7 @@
 default['exim4']['local_domains'] = [ 'localhost', '@' ]
 default['exim4']['relay_to_domains'] = [ ]
 default['exim4']['relay_from_hosts'] = [ '127.0.0.1', '::1' ]
+default['exim4']['daemon_smtp_ports'] = [ 25, 465, 587 ]
 
 default['exim4']['use_tls'] = true
 default['exim4']['tls_certificate'] = '/etc/ssl/exim.crt'

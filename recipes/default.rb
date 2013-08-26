@@ -17,9 +17,7 @@
 # limitations under the License.
 #
 
-package_name = 'exim4-daemon-light'
-
-package package_name
+package 'exim4-daemon-heavy'
 
 service 'exim4' do
 	supports :status => true, :restart => true, :reload => true

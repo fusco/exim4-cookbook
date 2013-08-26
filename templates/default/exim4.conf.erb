@@ -170,9 +170,11 @@ tls_privatekey = <%= node['exim4']['tls_privatekey'] %>
 # them you should also allow TLS-on-connect on the traditional but
 # non-standard port 465.
 
-# daemon_smtp_ports = 25 : 465 : 587
-# tls_on_connect_ports = 465
+daemon_smtp_ports = <%= node['exim4']['daemon_smtp_ports'].join(" : ") %>
 
+<% if node['exim4']['use_tls'] && node['exim4']['daemon_smtp_ports'].include?(465) -%>
+tls_on_connect_ports = 465
+<% end -%>
 
 # Specify the domain you want to be added to all unqualified addresses
 # here. An unqualified address is one that does not contain an "@" character

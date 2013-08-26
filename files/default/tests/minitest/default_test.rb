@@ -22,7 +22,7 @@ describe 'exim4::default' do
   include Helpers::Exim4
 
   it 'installs the exim4 package' do
-    package('exim4').must_be_installed
+    package('exim4-daemon-heavy').must_be_installed
   end
 
   it 'enables the exim4 service' do
@@ -31,6 +31,17 @@ describe 'exim4::default' do
 
   it 'starts the exim4 service' do
     service('exim4').must_be_running
+  end
+
+  it 'configures exim4.conf' do
+    file('/etc/exim4/exim4.conf').must_include('# This file is managed by chef.')
+  end
+
+  it 'makes the exim4 daemon listen on the right ports' do
+    result = assert_sh('netstat -tulpen | grep exim4')
+    assert_includes result, ':25 '
+    assert_includes result, ':465 '
+    assert_includes result, ':587 '
   end
 
 end
