@@ -1,6 +1,6 @@
 Description
 ===========
-Installs and configures exim4
+This cookbook aims to help with a custom configuration rather than the default ones covered by the exim4-config packages. If you are looking for a simple setup, please have a look at the exim4-light cookbook.
 
 Requirements
 ============
