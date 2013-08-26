@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+# TODO: fix the deprecated file layout
+
 require File.expand_path('../support/helpers', __FILE__)
 
 describe 'exim4::default' do
