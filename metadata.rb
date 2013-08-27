@@ -94,8 +94,27 @@ attribute 'exim4/accept_8bitmime',
   :type => 'boolean',
   :default => true
 
+
 attribute 'exim4/dns_blacklists',
   :display_name => 'List of DNSBL hosts',
   :description => 'List of hosts names of DNS blacklists',
   :type => 'array',
   :default => \[ 'zen.spamhaus.org' \]
+
+attribute 'exim4/use_clamav',
+  :display_name => 'Use ClamAV for virus scanning',
+  :description => 'Include configuration for ClamAV',
+  :type => 'boolean',
+  :default => false
+
+attribute 'exim4/use_spamassassin',
+  :display_name => 'Use SpamAssassin to filter spam',
+  :description => 'Include configuration for SpamAssassin (spamd)',
+  :type => 'boolean',
+  :default => false
+
+attribute 'exim4/spam/spam_found_action',
+  :display_name => 'Only warn or deny spam mails',
+  :description => 'Waht to do with mails considered as spam ("warn" or "deny")',
+  :type => 'string',
+  :default => 'warn'

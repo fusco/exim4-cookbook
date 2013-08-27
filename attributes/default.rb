@@ -18,6 +18,10 @@
 # limitations under the License.
 #
 
+# general
+default['exim4']['use_clamav'] = false
+default['exim4']['use_spamassassin'] = false
+default['exim4']['spam']['spam_found_action'] = 'warn'
 
 # main part
 default['exim4']['local_domains'] = [ 'localhost', '@' ]
