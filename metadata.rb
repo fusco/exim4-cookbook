@@ -85,6 +85,15 @@ attribute 'exim4/accept_8bitmime',
   :description => 'Disable to allow interaction with systems that are not 8-bit clean',
   :default => 'true'
 
+attribute 'exim4/use_userforward',
+  :display_name => 'Read the ~/.forward file',
+  :description => 'Use forwarding based on the ~/.forward file',
+  :default => 'true'
+
+attribute 'exim4/local_delivery',
+  :display_name => 'Do local delivery?',
+  :description => 'Let exim4 do local delivery?',
+  :default => 'true'
 
 
 attribute 'exim4/dns_blacklists',

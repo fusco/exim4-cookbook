@@ -626,6 +626,7 @@ system_aliases:
 # forwarding generates a direct delivery to a file, or to a pipe, or sets
 # up an auto-reply, respectively.
 
+<% if node['exim4']['use_userforward'] -%>
 userforward:
   driver = redirect
   check_local_user
@@ -639,7 +640,7 @@ userforward:
   file_transport = address_file
   pipe_transport = address_pipe
   reply_transport = address_reply
-
+<% end -%>
 
 # This router matches local user mailboxes. If the router fails, the error
 # message is "Unknown user".
@@ -649,6 +650,7 @@ userforward:
 # part_suffix options. Then, for example, xxxx-foo@your.domain will be treated
 # in the same way as xxxx@your.domain by this router.
 
+<% if node['exim4']['local_delivery'] -%>
 localuser:
   driver = accept
   check_local_user
@@ -656,7 +658,7 @@ localuser:
 # local_part_suffix_optional
   transport = local_delivery
   cannot_route_message = Unknown user
-
+<% end -%>
 
 
 ######################################################################

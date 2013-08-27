@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-# main part
+# main
 default['exim4']['local_domains'] = [ 'localhost', '@' ]
 default['exim4']['relay_to_domains'] = [ ]
 default['exim4']['relay_from_hosts'] = [ '127.0.0.1', '::1' ]
@@ -33,8 +33,12 @@ default['exim4']['split_spool_directory'] = false
 default['exim4']['check_rfc2047_length'] = true
 default['exim4']['accept_8bitmime'] = true
 
-# acl part
+# acl
 default['exim4']['dns_blacklists'] = [ 'zen.spamhaus.org' ]
+
+# routers
+default['exim4']['use_userforward'] = true
+default['exim4']['local_delivery'] = true
 
 # additional
 default['exim4']['use_clamav'] = false
