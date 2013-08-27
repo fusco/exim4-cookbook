@@ -117,7 +117,7 @@ acl_smtp_data = acl_check_data
 # You should not change those settings until you understand how ACLs work.
 
 
-<% if File.exist?("/var/run/clamav/clamd.ctl") -%>
+<% if File.exist?('/var/run/clamav/clamd.ctl') -%>
 # If you are running a version of Exim that was compiled with the content-
 # scanning extension, you can cause incoming messages to be automatically
 # scanned for viruses. You have to modify the configuration in two places to
@@ -129,7 +129,7 @@ acl_smtp_data = acl_check_data
 av_scanner = clamd:/var/run/clamav/clamd.ctl
 <% end -%>
 
-<% if File.exist?("/var/run/spamd.pid") -%>
+<% if File.exist?('/var/run/spamd.pid') -%>
 # For spam scanning, there is a similar option that defines the interface to
 # SpamAssassin. You do not need to set this if you are using the default, which
 # is shown in this commented example. As for virus scanning, you must also
@@ -461,6 +461,11 @@ acl_check_rcpt:
   #         add_header    = X-Warning: $sender_host_address is in a black list at $dnslist_domain
   #         log_message   = found in $dnslist_domain
   #############################################################################
+
+<% if !node['exim4']['dns_blacklists'].empty? -%>
+  deny    message       = Message rejected because $sender_host_address is in a DNSBL at $dnslist_domain\n$dnslist_text
+          dnslists      = <%= node['exim4']['dns_blacklists'].join(' : ') %>
+<% end -%>
 
   #############################################################################
   # This check is commented out because it is recognized that not every

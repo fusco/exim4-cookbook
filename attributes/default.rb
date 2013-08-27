@@ -33,3 +33,6 @@ default['exim4']['timeout_frozen_after'] = '7d'
 default['exim4']['split_spool_directory'] = false
 default['exim4']['check_rfc2047_length'] = true
 default['exim4']['accept_8bitmime'] = true
+
+# acl part
+default['exim4']['dns_blacklists'] = [ 'zen.spamhaus.org' ]
