@@ -18,11 +18,6 @@
 # limitations under the License.
 #
 
-# general
-default['exim4']['use_clamav'] = false
-default['exim4']['use_spamassassin'] = false
-default['exim4']['spam']['spam_found_action'] = 'warn'
-
 # main part
 default['exim4']['local_domains'] = [ 'localhost', '@' ]
 default['exim4']['relay_to_domains'] = [ ]
@@ -40,3 +35,8 @@ default['exim4']['accept_8bitmime'] = true
 
 # acl part
 default['exim4']['dns_blacklists'] = [ 'zen.spamhaus.org' ]
+
+# additional
+default['exim4']['use_clamav'] = false
+default['exim4']['use_spamassassin'] = false
+default['exim4']['spam']['spam_found_action'] = 'warn'
