@@ -35,6 +35,14 @@ describe 'exim4::default' do
 
   it 'configures exim4.conf' do
     file('/etc/exim4/exim4.conf').must_include('# This file is managed by chef.')
+    file('/etc/exim4/exim4.conf').must_include('dnslists      = zen.spamhaus.org')
+    file('/etc/exim4/exim4.conf').wont_include('av_scanner =')
+    file('/etc/exim4/exim4.conf').wont_include('spamd_address =')
+    file('/etc/exim4/exim4.conf').wont_include('This message contains a virus')
+    file('/etc/exim4/exim4.conf').wont_include('add_header = X-Spam_score: $spam_score')
+    file('/etc/exim4/exim4.conf').must_include('userforward:')
+    file('/etc/exim4/exim4.conf').must_include('localuser:')
+
   end
 
   it 'makes the exim4 daemon listen on the right ports' do
