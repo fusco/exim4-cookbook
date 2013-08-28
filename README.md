@@ -93,7 +93,7 @@ An example role could look like this:
     override_attributes(
       'exim4' => {
         'tls_certificate' => '/path/to/your/cert',
-        'mydtls_privatekeyomain' => '/path/to/your/key',
+        'tls_privatekeyomain' => '/path/to/your/key',
       }
     )
 
